@@ -58,7 +58,7 @@ export default class Message extends React.Component {
     if (currentMessage.user.avatar === null) {
       return null;
     }
-    return <Avatar {...avatarProps} showFirstNameUnder={true} />;
+    return <Avatar {...avatarProps} showFirstNameUnder />;
   }
 
   render() {

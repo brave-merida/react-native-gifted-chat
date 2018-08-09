@@ -39,18 +39,14 @@ export default class GiftedAvatar extends React.PureComponent {
       return this.props.user.avatar();
     } else if (typeof this.props.user.avatar === 'string') {
       return (
-        <View style={{ alignItems: 'center' }}>
+        <View style={styles.avatarContainer}>
           <Image
             source={{ uri: this.props.user.avatar }}
             style={[styles.avatarStyle, this.props.avatarStyle]}
           />
           {this.props.showFirstNameUnder && (
-            <Text style={{
-              fontSize: 13,
-              fontWeight: '100',
-              width: 40,
-            }} numberOfLines={2}>
-              {this.props.user.name ? this.props.user.name.split(" ")[0] : ""}
+            <Text style={styles.nameText} numberOfLines={2}>
+              {this.props.user.name ? this.props.user.name.split(' ')[0] : ''}
             </Text>
           )}
         </View>
@@ -135,6 +131,15 @@ const styles = {
     fontSize: 16,
     backgroundColor: Color.backgroundTransparent,
     fontWeight: '100',
+  },
+  avatarContainer: {
+    alignItems: 'center',
+  },
+  nameText: {
+    fontSize: 13,
+    fontWeight: '100',
+    width: 40,
+    textAlign: 'center',
   },
 };
 
