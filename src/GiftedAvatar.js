@@ -39,17 +39,30 @@ export default class GiftedAvatar extends React.PureComponent {
       return this.props.user.avatar();
     } else if (typeof this.props.user.avatar === 'string') {
       return (
-        <Image
-          source={{ uri: this.props.user.avatar }}
-          style={[styles.avatarStyle, this.props.avatarStyle]}
-        />
+        <View style={{ alignItems: 'center' }}>
+          <Image
+            source={{ uri: this.props.user.avatar }}
+            style={[styles.avatarStyle, this.props.avatarStyle]}
+          />
+          {this.props.showFirstNameUnder && (
+            <Text style={{
+              fontSize: 13,
+              fontWeight: '100',
+              width: 40,
+            }} numberOfLines={2}>
+              {this.props.user.name ? this.props.user.name.split(" ")[0] + "Beneenenennenen" : ""}
+            </Text>
+          )}
+        </View>
       );
     } else if (typeof this.props.user.avatar === 'number') {
       return (
-        <Image
-          source={this.props.user.avatar}
-          style={[styles.avatarStyle, this.props.avatarStyle]}
-        />
+        <View>
+          <Image
+            source={this.props.user.avatar}
+            style={[styles.avatarStyle, this.props.avatarStyle]}
+          />
+        </View>
       );
     }
     return null;
@@ -133,6 +146,7 @@ GiftedAvatar.defaultProps = {
   onPress: null,
   avatarStyle: {},
   textStyle: {},
+  showFirstNameUnder: false,
 };
 
 GiftedAvatar.propTypes = {
@@ -140,4 +154,5 @@ GiftedAvatar.propTypes = {
   onPress: PropTypes.func,
   avatarStyle: Image.propTypes.style,
   textStyle: Text.propTypes.style,
+  showFirstNameUnder: PropTypes.bool,
 };
