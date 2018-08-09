@@ -50,7 +50,7 @@ export default class GiftedAvatar extends React.PureComponent {
               fontWeight: '100',
               width: 40,
             }} numberOfLines={2}>
-              {this.props.user.name ? this.props.user.name.split(" ")[0] + "Beneenenennenen" : ""}
+              {this.props.user.name ? this.props.user.name.split(" ")[0] : ""}
             </Text>
           )}
         </View>
