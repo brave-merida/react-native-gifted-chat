@@ -9,7 +9,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { ListView, View, StyleSheet } from 'react-native';
+import { ListView, View, StyleSheet, Platform } from 'react-native';
 
 import shallowequal from 'shallowequal';
 import InvertibleScrollView from 'react-native-invertible-scroll-view';
@@ -92,7 +92,7 @@ export default class MessageContainer extends React.Component {
       }
       return <LoadEarlier {...loadEarlierProps} />;
     }
-    return null;
+    return Platform.OS === 'android' ? <View style={{ height: this.props.keyboardHeight }} /> : null;
   }
 
   renderFooter() {
@@ -187,6 +187,7 @@ MessageContainer.defaultProps = {
   loadEarlier: false,
   listViewProps: {},
   invertibleScrollViewProps: {},
+  keyboardHeight: 0,
 };
 
 MessageContainer.propTypes = {
@@ -200,4 +201,5 @@ MessageContainer.propTypes = {
   inverted: PropTypes.bool,
   loadEarlier: PropTypes.bool,
   invertibleScrollViewProps: PropTypes.object,
+  keyboardHeight: PropTypes.number,
 };

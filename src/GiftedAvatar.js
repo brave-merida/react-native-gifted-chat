@@ -136,6 +136,7 @@ const styles = {
     alignItems: 'center',
   },
   nameText: {
+    color: '#bf9359',
     fontSize: 13,
     fontWeight: '100',
     width: 40,
