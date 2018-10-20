@@ -58,7 +58,7 @@ export default class Message extends React.Component {
     if (currentMessage.user.avatar === null) {
       return null;
     }
-    return <Avatar {...avatarProps} showFirstNameUnder />;
+    return <Avatar {...avatarProps} showFirstNameUnder={this.props.showAvatarName} />;
   }
 
   render() {
@@ -120,12 +120,14 @@ Message.defaultProps = {
   previousMessage: {},
   user: {},
   containerStyle: {},
+  showAvatarName: true,
   showUserAvatar: true,
   inverted: true,
 };
 
 Message.propTypes = {
   renderAvatar: PropTypes.func,
+  showAvatarName: PropTypes.bool,
   showUserAvatar: PropTypes.bool,
   renderBubble: PropTypes.func,
   renderDay: PropTypes.func,
