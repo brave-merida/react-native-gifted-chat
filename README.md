@@ -156,6 +156,10 @@ e.g. System Message
 
 ## Props
 
+*Customized Props*
+* **`showAvatarName`** _(Bool)_ - Show user's first name under avatar; default is `true`
+
+*Default Props*
 * **`messages`** _(Array)_ - Messages to display
 * **`text`** _(String)_ - Input text; default is `undefined`, but if specified, it will override GiftedChat's internal state (e.g. for redux; [see notes below](#notes-for-redux))
 * **`placeholder`** _(String)_ - Placeholder when `text` is empty; default is `'Type a message...'`
